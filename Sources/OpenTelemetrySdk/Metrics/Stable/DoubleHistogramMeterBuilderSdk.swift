@@ -17,9 +17,9 @@ public class DoubleHistogramMeterBuilderSdk: DoubleHistogramBuilder, InstrumentB
     
     let instrumentName: String
     
-    var description: String
+    var description: String = ""
     
-    var unit: String
+    var unit: String = ""
     
     init(meterProviderSharedState: inout MeterProviderSharedState,
          meterSharedState: inout StableMeterSharedState,
