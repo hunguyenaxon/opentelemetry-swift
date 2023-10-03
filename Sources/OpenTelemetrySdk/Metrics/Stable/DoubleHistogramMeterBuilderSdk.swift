@@ -11,23 +11,19 @@ public class DoubleHistogramMeterBuilderSdk : DoubleHistogramBuilder, Instrument
     
     var meterSharedState: StableMeterSharedState
     
-    var type: InstrumentType
+    var type: InstrumentType = .histogram
     
-    var valueType: InstrumentValueType
+    var valueType: InstrumentValueType = .double
     
-    var description: String
+    var description: String = ""
     
-    var unit: String
+    var unit: String = ""
     
     var instrumentName: String
     
     init(meterProviderSharedState: inout MeterProviderSharedState, meterSharedState: inout StableMeterSharedState, name: String) {
         self.meterProviderSharedState = meterProviderSharedState
         self.meterSharedState = meterSharedState
-        self.type = .histogram
-        self.valueType = .double
-        self.description = ""
-        self.unit = ""
         self.instrumentName = name
     }
 
