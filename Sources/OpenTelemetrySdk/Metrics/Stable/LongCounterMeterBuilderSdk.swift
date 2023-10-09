@@ -12,9 +12,9 @@ public class LongCounterMeterBuilderSdk : LongCounterBuilder, InstrumentBuilder 
     
     var meterSharedState: StableMeterSharedState
     
-    var type: InstrumentType
+    let type: InstrumentType = .counter
     
-    var valueType: InstrumentValueType
+    let valueType: InstrumentValueType = .long
     
     var description: String = ""
     
@@ -26,9 +26,6 @@ public class LongCounterMeterBuilderSdk : LongCounterBuilder, InstrumentBuilder 
         self.meterProviderSharedState = meterProviderSharedState
         self.meterSharedState = meterSharedState
         self.instrumentName = name
-        type = .counter
-        valueType = .long
-        
     }
     
     public func ofDoubles() -> OpenTelemetryApi.DoubleCounterBuilder {
@@ -40,7 +37,7 @@ public class LongCounterMeterBuilderSdk : LongCounterBuilder, InstrumentBuilder 
     }
     
     public func buildWithCallback(_ callback: @escaping (OpenTelemetryApi.ObservableLongMeasurement) -> Void) -> OpenTelemetryApi.ObservableLongCounter {
-        registerLongAsynchronousInstrument(type: type, updater: callback)
+        registerLongAsynchronousInstrument(type: .observableCounter, updater: callback)
     }
     
     
