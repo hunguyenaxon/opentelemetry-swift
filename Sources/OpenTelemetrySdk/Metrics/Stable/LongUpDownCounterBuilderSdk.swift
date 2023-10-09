@@ -37,7 +37,7 @@ public class LongUpDownCounterBuilderSdk : LongUpDownCounterBuilder, InstrumentB
     }
     
     public func buildWithCallback(_ callback: @escaping (OpenTelemetryApi.ObservableLongMeasurement) -> Void) -> OpenTelemetryApi.ObservableLongUpDownCounter {
-        registerLongAsynchronousInstrument(type: type, updater: callback)
+        registerLongAsynchronousInstrument(type: .observableUpDownCounter, updater: callback)
     }
     
     
